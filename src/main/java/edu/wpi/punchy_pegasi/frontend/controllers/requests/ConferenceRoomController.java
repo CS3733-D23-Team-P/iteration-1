@@ -60,7 +60,6 @@ public class ConferenceRoomController extends RequestController<ConferenceRoomEn
         submit.setDisable(true);
         beginningTime.setOnCommit(e->validateEntry());
         endTime.setOnCommit(e-> validateEntry());
-        setHeaderText("Conference Room Request");
     }
 
     @Override

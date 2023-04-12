@@ -74,8 +74,6 @@ public class FurnitureRequestController extends RequestController<FurnitureReque
         furnTable.getTableColumns().addAll(typeCol, numCol);
         furnTable.setItems(itemList);
         itemList.remove(0, 1);
-        setHeaderText("Furniture Request");
-
     }
 
     @Override
