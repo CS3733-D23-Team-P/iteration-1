@@ -30,43 +30,18 @@ public class LoginController {
     private Facade facade = new Facade(pdb);
 
     public void logIn(ActionEvent event) {
-        invalidText.setVisible(false);
-        String username = usernameEnter.getText();
-        String password = passwordBox.getText();
-        Account.Field[] fields = { Account.Field.USERNAME, Account.Field.PASSWORD };
-        Object[] values = { username, password };
-        Map<String, Account> map = facade.getAccount(fields, values);
-
-        if(map.size() > 0) {
-            App.getSingleton().setAccount(map.values().stream().findFirst().get());
-            App.getSingleton().navigate(Screen.HOME);
-        } else {
-            invalidText.setVisible(true);
-            usernameEnter.setStyle("-fx-border-color: red; -fx-text-fill: #000000;");
-            passwordBox.setStyle("-fx-border-color: red; -fx-text-fill: #000000;");
-        }
+        attemptLogin();
     }
 
     public void usernameEnter(ActionEvent event) {
-        invalidText.setVisible(false);
-        String username = usernameEnter.getText();
-        String password = passwordBox.getText();
-        Account.Field[] fields = { Account.Field.USERNAME, Account.Field.PASSWORD };
-        Object[] values = { username, password };
-        Map<String, Account> map = facade.getAccount(fields, values);
-
-        if(map.size() > 0) {
-            App.getSingleton().setAccount(map.values().stream().findFirst().get());
-            App.getSingleton().navigate(Screen.HOME);
-        } else {
-            invalidText.setVisible(true);
-            usernameEnter.setStyle("-fx-border-color: red; -fx-text-fill: #000000;");
-            passwordBox.setStyle("-fx-border-color: red; -fx-text-fill: #000000;");
-        }
+        attemptLogin();
     }
 
     public void passwordEnter(ActionEvent event) {
-        invalidText.setVisible(false);
+        attemptLogin();
+    }
+
+    private void attemptLogin() {
         String username = usernameEnter.getText();
         String password = passwordBox.getText();
         Account.Field[] fields = { Account.Field.USERNAME, Account.Field.PASSWORD };
