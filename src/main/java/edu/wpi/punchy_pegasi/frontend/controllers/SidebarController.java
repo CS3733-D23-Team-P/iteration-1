@@ -113,7 +113,8 @@ public class SidebarController {
         });
 
         logout.setOnMouseClicked(e -> {
-            App.getSingleton().exit();
+            App.getSingleton().navigate(Screen.LOGIN);
+            App.getSingleton().setAccount(null);
         });
 
 
